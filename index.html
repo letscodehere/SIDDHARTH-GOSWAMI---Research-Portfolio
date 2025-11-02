@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddharth Goswami - Research Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1e3c72;
+            --primary-teal: #2a9d8f;
+            --accent-coral: #ff6b6b;
+            --accent-gold: #ffd93d;
+            --bg-dark: #0f1419;
+            --bg-card: rgba(30, 60, 114, 0.15);
+            --text-light: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] {
+            --bg-dark: #f5f5f5;
+            --bg-card: rgba(42, 157, 143, 0.08);
+            --text-light: #1e3c72;
+            --text-secondary: #4a5568;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(30, 60, 114, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] nav {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-teal);
+        }
+
+        .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-teal);
+            transform: scale(1.05);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #264653 50%, var(--primary-teal) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(42, 157, 143, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.3) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-main {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-coral), var(--accent-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            margin: 0 auto 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 5px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card:nth-child(1) .stat-value { color: var(--accent-coral); }
+        .stat-card:nth-child(2) .stat-value { color: var(--primary-teal); }
+        .stat-card:nth-child(3) .stat-value { color: var(--accent-gold); }
+        .stat-card:nth-child(4) .stat-value { color: var(--accent-coral); }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-coral), var(--accent-gold));
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--primary-teal);
+            transform: translateY(-5px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-teal);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .highlight-item i {
+            font-size: 2rem;
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Publications Section */
+        .publications-controls {
+            margin-bottom: 2rem;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-label {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: var(--primary-teal);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background: var(--primary-teal);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-teal), var(--accent-coral));
+            color: white;
+            border-color: transparent;
+        }
+
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .publication-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-teal);
+        }
+
+        .publication-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-ieee { background: linear-gradient(135deg, #1e90ff, #00bfff); color: white; }
+        .badge-scopus { background: linear-gradient(135deg, #ff6b6b, #ee5a6f); color: white; }
+        .badge-springer { background: linear-gradient(135deg, #ffd93d, #ffb700); color: #1e3c72; }
+        .badge-igi { background: linear-gradient(135deg, #2a9d8f, #06d6a0); color: white; }
+        .badge-accepted { background: linear-gradient(135deg, #6a4c93, #8b5cf6); color: white; }
+        .badge-review { background: linear-gradient(135deg, #f77f00, #fcbf49); color: white; }
+        .badge-abstract { background: linear-gradient(135deg, #90e0ef, #00b4d8); color: white; }
+
+        .publication-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.4;
+            padding-right: 100px;
+        }
+
+        .publication-authors {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-venue {
+            font-size: 0.85rem;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .publication-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .publication-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: rgba(42, 157, 143, 0.2);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--primary-teal);
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .pub-link-primary {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        .pub-link-primary:hover {
+            background: var(--accent-coral);
+            transform: translateY(-2px);
+        }
+
+        .pub-link-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            border: 1px solid var(--glass-border);
+        }
+
+        .pub-link-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Patent Section */
+        .patent-card {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.3), rgba(42, 157, 143, 0.3));
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--primary-teal);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .patent-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .patent-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+        }
+
+        .patent-title {
+            font-size: 1.8rem;
+            color: var(--text-light);
+        }
+
+        .patent-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .patent-detail-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .patent-detail-item strong {
+            color: var(--primary-teal);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .patent-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .award-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-coral));
+        }
+
+        .award-icon {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .award-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .award-year {
+            font-size: 1rem;
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .award-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-teal);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .skill-level {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-teal), var(--accent-coral));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            color: var(--primary-teal);
+            font-weight: bold;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-teal), var(--accent-coral));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent-coral);
+            border: 4px solid var(--bg-dark);
+            box-shadow: 0 0 0 3px var(--primary-teal);
+        }
+
+        .experience-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-subtitle {
+            font-size: 1rem;
+            color: var(--primary-teal);
+            font-weight: 600;
+        }
+
+        .experience-period {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .experience-description ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .experience-description li {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: linear-gradient(135deg, rgba(30, 60, 114, 0.3), rgba(42, 157, 143, 0.3));
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--primary-teal);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .education-degree {
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-university {
+            font-size: 1.2rem;
+            color: var(--primary-teal);
+        }
+
+        .education-cgpa {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .education-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .education-detail-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .education-detail-item strong {
+            color: var(--primary-teal);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Book Section */
+        .book-showcase {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 217, 61, 0.2));
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--accent-coral);
+            border-radius: 25px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .book-cover {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 2/3;
+            background: linear-gradient(135deg, var(--accent-coral), var(--accent-gold));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .book-info h3 {
+            font-size: 2rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .book-meta {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .book-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .book-award {
+            background: rgba(255, 217, 61, 0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .book-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .contact-text a {
+            color: var(--primary-teal);
+            text-decoration: none;
+        }
+
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 20, 25, 0.95);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        [data-theme="light"] footer {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 20, 25, 0.98);
+                padding: 2rem;
+                backdrop-filter: blur(20px);
+            }
+
+            [data-theme="light"] .nav-links {
+                background: rgba(255, 255, 255, 0.98);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-container,
+            .book-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .publications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-title {
+                padding-right: 0;
+                margin-top: 3rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .profile-circle {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary-teal), var(--accent-coral));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-coral);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">SG</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#patent">Patent</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="mobile-menu" id="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-main">
+                <div class="profile-circle">SG</div>
+                <h1>Siddharth Goswami</h1>
+                <p class="hero-tagline">Biomedical Informatics &amp; Computational Biology Researcher</p>
+                <p class="hero-subtitle">AI-Driven Healthcare Innovation | Computational Drug Design | Systems Biology</p>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-value" data-target="20">0</div>
+                    <div class="stat-label">First-Author Publications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="100">0</div>
+                    <div class="stat-label">Total Citations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" data-target="5">0</div>
+                    <div class="stat-label">h-index</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">Top 37%</div>
+                    <div class="stat-label">Global Ranking (AD Scientific Index)</div>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#publications" class="btn btn-primary">
+                    <i class="fas fa-book-open"></i> View My Research
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Get In Touch
+                </a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://scholar.google.com/citations?hl=en&user=DseJIFYAAAAJ" target="_blank" class="social-link" title="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="mailto:siddharthagoswami29@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+919548137311" class="social-link" title="Phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Pioneering Research in Computational Biology &amp; AI-Driven Medicine</p>
+        </div>
+        <div class="about-content">
+            <div class="about-image">SG</div>
+            <div class="about-text">
+                <h3>Research Excellence &amp; Innovation</h3>
+                <p>Siddharth Goswami is an emerging researcher in <strong>Biomedical Informatics and Computational Biology</strong>, recognized for integrating artificial intelligence, quantum computing, and systems biology toward advancing precision medicine and translational biomedicine.</p>
+                <p>As a first-author of <strong>20+ research papers</strong> published in prestigious venues including IEEE, Elsevier, Springer Nature, and IGI Global, his work spans AI-driven healthcare, computational drug design, and systems-level biology. He is the <strong>first inventor of a published patent</strong> in Alzheimer's drug discovery and author of an accepted academic book titled <em>Comprehensive Biomedical Informatics</em> (Bentham Science).</p>
+                <p>Currently working under <strong>Prof. Sachin Sharma</strong> (Stanford University Top 2% Scientist), Siddharth's research contributions include the development of reinforcement learning models for clinical risk prediction, quantum computing pipelines for NGS-based personalized medicine, and deep learning approaches for molecular drug design.</p>
+                <p>With <strong>100+ citations</strong>, an <strong>h-index of 5+</strong>, and ranking in the <strong>top 37% globally</strong> (AD Scientific Index 2025), Siddharth is dedicated to leveraging computational modeling to accelerate discoveries in drug development, clinical decision support, and biomedical data science.</p>
+                
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-award"></i>
+                        <p><strong>Bank of Baroda Achievers Award</strong></p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-trophy"></i>
+                        <p><strong>Top 2% Student Excellence</strong></p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-users"></i>
+                        <p><strong>15+ Students Mentored</strong></p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-microphone"></i>
+                        <p><strong>11+ Conference Presentations</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="section-header">
+            <h2 class="section-title">Research Publications</h2>
+            <p class="section-subtitle">21 Publications | 100+ Citations | h-index: 5+ | Multi-Disciplinary Research Portfolio</p>
+        </div>
+
+        <div class="publications-controls">
+            <div class="filter-group">
+                <label class="filter-label">Filter by Type:</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All (24)</button>
+                    <button class="filter-btn" data-filter="ieee">IEEE (7)</button>
+                    <button class="filter-btn" data-filter="scopus">Scopus Journal (3)</button>
+                    <button class="filter-btn" data-filter="springer">Book Chapters (2)</button>
+                    <button class="filter-btn" data-filter="accepted">Accepted (2)</button>
+                    <button class="filter-btn" data-filter="review">Under Review (6)</button>
+                    <button class="filter-btn" data-filter="abstract">Abstracts (3)</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Filter by Year:</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn" data-year="all">All Years</button>
+                    <button class="filter-btn" data-year="2026">2026</button>
+                    <button class="filter-btn" data-year="2025">2025</button>
+                    <button class="filter-btn" data-year="2024">2024</button>
+                    <button class="filter-btn" data-year="2023">2023</button>
+                    <button class="filter-btn" data-year="2022">2022</button>
+                    <button class="filter-btn" data-year="2020">2020</button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Filter by Research Area:</label>
+                <div class="filter-buttons">
+                    <button class="filter-btn" data-category="all">All Areas</button>
+                    <button class="filter-btn" data-category="alzheimer">Alzheimer's Disease</button>
+                    <button class="filter-btn" data-category="ai-ml">AI/ML</button>
+                    <button class="filter-btn" data-category="cancer">Cancer Research</button>
+                    <button class="filter-btn" data-category="drug-discovery">Drug Discovery</button>
+                    <button class="filter-btn" data-category="clinical">Clinical Informatics</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="publications-grid" id="publicationsGrid">
+            <!-- Publications will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Patent Section -->
+    <section id="patent">
+        <div class="section-header">
+            <h2 class="section-title">Published Patent</h2>
+            <p class="section-subtitle">Innovation in Alzheimer's Disease Drug Discovery</p>
+        </div>
+
+        <div class="patent-card">
+            <div class="patent-header">
+                <div class="patent-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div>
+                    <h3 class="patent-title">Novel Ligand Molecules Targeting GSK-3β Enzyme for the Treatment of Alzheimer's Disease</h3>
+                </div>
+            </div>
+
+            <div class="patent-details">
+                <div class="patent-detail-item">
+                    <strong>Inventors:</strong>
+                    <p>Goswami, S. (First Inventor), Singh, P., &amp; Yadav, B.</p>
+                </div>
+                <div class="patent-detail-item">
+                    <strong>Application Number:</strong>
+                    <p>202411101941 A</p>
+                </div>
+                <div class="patent-detail-item">
+                    <strong>Filing Date:</strong>
+                    <p>December 23, 2024</p>
+                </div>
+                <div class="patent-detail-item">
+                    <strong>Publication Date:</strong>
+                    <p>January 3, 2025</p>
+                </div>
+                <div class="patent-detail-item">
+                    <strong>Journal Reference:</strong>
+                    <p>The Patent Office Journal No. 1/2025, Page 735</p>
+                </div>
+            </div>
+
+            <p class="patent-description">
+                This groundbreaking patent describes novel ligand molecules designed to target the GSK-3β enzyme, a key therapeutic target in Alzheimer's disease. Through computational drug repurposing and molecular dynamics simulations, these ligands demonstrate superior binding affinity and favorable pharmacokinetic properties including blood-brain barrier permeability. The innovation represents a significant advancement in the development of potential disease-modifying therapies for Alzheimer's disease, addressing a critical unmet medical need in neurodegenerative medicine.
+            </p>
+
+            <div class="publication-links">
+                <a href="https://search.ipindia.gov.in/IPOJournal/Journal/Patent" target="_blank" class="pub-link pub-link-primary">
+                    <i class="fas fa-external-link-alt"></i> View on Indian Patent Office
+                </a>
+                <a href="https://scholar.google.com/citations?hl=en&user=DseJIFYAAAAJ" target="_blank" class="pub-link pub-link-secondary">
+                    <i class="fas fa-graduation-cap"></i> Google Scholar Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards">
+        <div class="section-header">
+            <h2 class="section-title">Awards &amp; Recognition</h2>
+            <p class="section-subtitle">Celebrating Excellence in Research, Innovation &amp; Academic Achievement</p>
+        </div>
+
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                <h3 class="award-name">Bank of Baroda Achievers Award</h3>
+                <p class="award-year">2023</p>
+                <p class="award-description">
+                    Conferred by Bank of Baroda for exceptional academic excellence, impactful research publications, and international conference abstracts. A highly selective recognition granted to <strong>less than 1% of applicants nationwide</strong> among thousands of applicants across India.
+                </p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-medal"></i></div>
+                <h3 class="award-name">Certificate of Outstanding Achievement</h3>
+                <p class="award-year">2023</p>
+                <p class="award-description">
+                    Awarded by Graphic Era University for being among the top-performing students in Biotechnology Engineering. Recognizes the <strong>top 2% of students</strong> demonstrating excellence across academics, research contributions, and leadership.
+                </p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="award-name">Merit-Based Academic Scholarship</h3>
+                <p class="award-year">2019-2023</p>
+                <p class="award-description">
+                    Prestigious merit scholarship of <strong>₹40,000 per semester</strong> granted by Graphic Era (Deemed to be University) for maintaining top-tier academic standing throughout all semesters. Awarded to fewer than 5% of students.
+                </p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-pen-fancy"></i></div>
+                <h3 class="award-name">Emily Dickinson Award</h3>
+                <p class="award-year">2024</p>
+                <p class="award-description">
+                    International literary distinction honoring outstanding creative and psychological expression through poetry. Received for the globally published book <em>Turning the Secret Pages of Our Existence</em>, available in <strong>over 155 countries</strong>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <h2 class="section-title">Skills &amp; Expertise</h2>
+            <p class="section-subtitle">Multidisciplinary Computational &amp; Research Capabilities</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming &amp; Data Science</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">PyTorch</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">TensorFlow</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">SQL</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">MATLAB</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-dna"></i> Bioinformatics Tools</h3>
+                <ul class="skill-list">
+                    <li>AutoDock</li>
+                    <li>PyMOL</li>
+                    <li>Chimera</li>
+                    <li>PyRx</li>
+                    <li>GROMACS</li>
+                    <li>Schrödinger Suite</li>
+                    <li>Bioconductor</li>
+                    <li>Galaxy</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Computational Techniques</h3>
+                <ul class="skill-list">
+                    <li>Deep Learning (CNNs, RNNs, LSTM)</li>
+                    <li>Reinforcement Learning</li>
+                    <li>Bioinformatics Pipelines</li>
+                    <li>Next-Generation Sequencing (NGS)</li>
+                    <li>Molecular Dynamics Simulations</li>
+                    <li>Molecular Docking</li>
+                    <li>Quantum Computing</li>
+                    <li>Multi-omics Data Integration</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-flask"></i> Wet Lab Techniques</h3>
+                <ul class="skill-list">
+                    <li>PCR (Polymerase Chain Reaction)</li>
+                    <li>DNA Isolation &amp; Extraction</li>
+                    <li>Gel Electrophoresis</li>
+                    <li>Microbial Culture</li>
+                    <li>Food Adulteration Detection</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header">
+            <h2 class="section-title">Research Experience</h2>
+            <p class="section-subtitle">Progressive Journey Through Cutting-Edge Computational Biology Research</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Research Assistant</h3>
+                        <p class="experience-subtitle">Prof. Sachin Sharma (Stanford University Top 2% Scientist)</p>
+                        <p class="experience-period">2023 - Present</p>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Analyzed and interpreted AI and quantum computing pipelines for next-generation sequencing (NGS) data to enable personalized medicine</li>
+                            <li>Built reinforcement learning models to map MRSA resistance patterns using socio-demographic data from California, USA across <strong>50,000+ training steps</strong>, surpassing DQN across all metrics (p ≤ 0.0007)</li>
+                            <li>Engineered IoT-integrated predictive healthcare frameworks and applied LSTM RNNs to enhance structure-based drug design</li>
+                            <li>Led data-driven analysis of computational intelligence for systems-level understanding of biology</li>
+                            <li>Authoring an upcoming academic book on <em>Comprehensive Biomedical Informatics</em> (Bentham Science)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Major Undergraduate Research Project</h3>
+                        <p class="experience-subtitle">Alzheimer's Drug Discovery Research</p>
+                        <p class="experience-period">January - May 2023</p>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Repurposed FDA-approved anticancer drugs for Alzheimer's therapy using molecular docking and dynamics simulations</li>
+                            <li>Designed a library of <strong>300 novel ligands</strong>; 75% exhibited ≥1.2-fold binding-affinity improvement over parent compounds</li>
+                            <li>Identified novel ligand molecules targeting GSK-3β, HDACs, and RXR alpha enzymes</li>
+                            <li>Contributed to <strong>1 published patent</strong>, 3 conference abstracts, and 3 high-impact papers</li>
+                            <li><strong>Tools:</strong> AutoDock, GROMACS, Schrödinger Suite, PyMOL, SWISS ADME</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Research Internship</h3>
+                        <p class="experience-subtitle">Computational Modeling for HDACs</p>
+                        <p class="experience-period">June - July 2022</p>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Conducted virtual screening and docking of anticancer drugs against HDAC proteins</li>
+                            <li>Screened a library of <strong>100 novel anticancer ligands</strong> via PyRx and Chimera</li>
+                            <li>Top hits demonstrated <strong>&gt;80% superior docking scores</strong> versus control compounds</li>
+                            <li><strong>Tools:</strong> RCSB PDB, PubChem, Chimera, PyRx, SWISS ADME, Protox II, Discovery Studio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Industrial Training</h3>
+                        <p class="experience-subtitle">Orbit Biotech Pvt Ltd, Mohali</p>
+                        <p class="experience-period">June - August 2021</p>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Hands-on training in food adulteration detection and molecular biology techniques</li>
+                            <li>PCR amplification, DNA isolation, and gel electrophoresis</li>
+                            <li>Practical experience in laboratory protocols and quality control</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-header">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">Academic Excellence in Biotechnology Engineering</p>
+        </div>
+
+        <div class="education-card">
+            <div class="education-header">
+                <div>
+                    <h3 class="education-degree">B.Tech in Biotechnology</h3>
+                    <p class="education-university">Graphic Era (Deemed to be University), Dehradun, India</p>
+                </div>
+                <div>
+                    <p class="education-cgpa">CGPA: 8.84/10</p>
+                    <p style="color: var(--accent-gold); font-weight: 600;">Top 5% of Cohort</p>
+                </div>
+            </div>
+
+            <div class="education-details">
+                <div class="education-detail-item">
+                    <strong>Duration:</strong>
+                    <p>2019 - 2023</p>
+                </div>
+                <div class="education-detail-item">
+                    <strong>Scholarship:</strong>
+                    <p>Merit Scholarship (All Semesters) - ₹40,000/semester</p>
+                </div>
+                <div class="education-detail-item">
+                    <strong>Thesis Title:</strong>
+                    <p>In-silico studies and analysis of designed compounds through repurposing of Anti-Cancer drugs against targets in Alzheimer's Disease</p>
+                </div>
+                <div class="education-detail-item">
+                    <strong>Key Coursework:</strong>
+                    <p>Computational Biology, Bioinformatics &amp; In-silico Drug Development, Artificial Intelligence, Rational Drug Discovery, Genomics and Molecular Biology, Programming for Problem Solving, Cloud Computing and Big Data</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership">
+        <div class="section-header">
+            <h2 class="section-title">Leadership &amp; Outreach</h2>
+            <p class="section-subtitle">Mentorship, Community Engagement &amp; Academic Service</p>
+        </div>
+
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3 class="award-name">Principal Investigator</h3>
+                <p class="award-description">
+                    Led <strong>20+ research projects</strong> across computational biology, drug discovery, and AI-driven healthcare. Delivered oral presentations at <strong>11+ international conferences</strong> (IEEE, ISCB, ICBB, ICHCSC) engaging audiences from 20+ nations across America, Europe, and Asia.
+                </p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3 class="award-name">Peer Mentor &amp; Educator</h3>
+                <p class="award-description">
+                    Member and Peer Mentor at <strong>Biopreneurs Club</strong>, Graphic Era University. Mentored <strong>15+ undergraduate students</strong> in computational biology and research methodology through hands-on workshops on bioinformatics tools, project design, and entrepreneurial applications.
+                </p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-user-check"></i></div>
+                <h3 class="award-name">Academic Reviewer</h3>
+                <p class="award-description">
+                    Reviewed <strong>4+ scholarly articles</strong> for prestigious international journals and publishers including <strong>IGI Global, Springer Nature, and Elsevier</strong>. Contributing to maintaining high standards in academic publishing.
+                </p>
+            </div>
+
+            <div class="award-card">
+                <div class="award-icon"><i class="fas fa-hands-helping"></i></div>
+                <h3 class="award-name">Workshop Coordinator</h3>
+                <p class="award-description">
+                    Coordinated and participated in 2-day nationwide workshop on "Opportunities and Trends in Modern Instrumentation for Science and Technology" organized by <strong>CSIR-IIP &amp; Graphic Era University (2019)</strong>, bringing together 200+ academic and industry experts.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Section -->
+    <section id="book">
+        <div class="section-header">
+            <h2 class="section-title">Published Book</h2>
+            <p class="section-subtitle">International Literary Achievement</p>
+        </div>
+
+        <div class="book-showcase">
+            <div class="book-cover">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="book-info">
+                <h3>Turning the Secret Pages of Our Existence</h3>
+                <p class="book-meta">
+                    <strong>ISBN-10:</strong> 9363306666 | <strong>ISBN-13:</strong> 978-9363306660<br>
+                    <strong>Publisher:</strong> Book Leaf Publishing | <strong>Year:</strong> 2024
+                </p>
+                <div class="book-award">
+                    <strong><i class="fas fa-award"></i> Emily Dickinson Award 2024</strong>
+                    <p>International literary distinction for outstanding creative and psychological expression</p>
+                </div>
+                <p class="book-description">
+                    An award-winning psychological exploration of life's mysteries, soul secrets, and the intricate patterns of human experience. This self-published poetry book is available in <strong>over 150 countries</strong> through major international retailers including Amazon, Barnes &amp; Noble, and Waterstones.
+                </p>
+                <div class="book-links">
+                    <a href="https://www.amazon.in/Turning-Secret-Pages-our-Existence/dp/9363306666" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-amazon"></i> Amazon India
+                    </a>
+                    <a href="https://www.barnesandnoble.com/w/turning-the-secret-pages-of-our-existence-siddharth-goswami/1146648188?ean=9789363306660" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-book"></i> Barnes &amp; Noble
+                    </a>
+                    <a href="https://www.waterstones.com/book/turning-the-secret-pages-of-our-existence/siddharth-goswami/9789363306660" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-book-reader"></i> Waterstones
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's Collaborate on Innovative Research &amp; Projects</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 style="margin-bottom: 2rem; color: var(--primary-teal);">Contact Information</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <strong>Email</strong><br>
+                        <a href="mailto:siddharthagoswami29@gmail.com">siddharthagoswami29@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <strong>Phone</strong><br>
+                        <a href="tel:+919548137311">+91-9548137311</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <strong>Location</strong><br>
+                        Muzaffarnagar-251001, U.P., India
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="contact-text">
+                        <strong>Google Scholar</strong><br>
+                        <a href="https://scholar.google.com/citations?hl=en&user=DseJIFYAAAAJ" target="_blank">View Profile</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="#" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-download"></i> Download Full CV
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3 style="margin-bottom: 2rem; color: var(--primary-teal);">Send a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Siddharth Goswami. All rights reserved.</p>
+        <p>Biomedical Informatics &amp; Computational Biology Researcher</p>
+        <div class="social-links" style="margin-top: 1rem;">
+            <a href="https://scholar.google.com/citations?hl=en&user=DseJIFYAAAAJ" target="_blank" class="social-link">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="mailto:siddharthagoswami29@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="tel:+919548137311" class="social-link">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Publications Data
+        const publications = [
+            // IEEE Publications (7)
+            {
+                title: "Artificial Intelligence, Quantum Computing and Cloud Computing Enabled Personalized Medicine in Next Generation Sequencing Bioinformatics",
+                authors: "Goswami, S., & Sharma, S.",
+                year: 2024,
+                venue: "IEEE International Conference on Innovative Applications of Technology for Micro & Smart Industries (IATMSI)",
+                type: "ieee",
+                category: ["ai-ml", "clinical"],
+                description: "Explores the integration of AI, quantum computing, and cloud technologies for advancing personalized medicine through NGS data analysis. Presents novel computational pipelines for translating genomic insights into clinical applications.",
+                doi: "https://doi.org/10.1109/IATMSI60426.2024.10502533",
+                tags: ["Quantum Computing", "NGS", "Personalized Medicine", "AI"]
+            },
+            {
+                title: "Application of Deep Learning in Cytopathology and Prostate Adenocarcinoma Diagnosis",
+                authors: "Goswami, S., Thakur, N., & Singh, P.",
+                year: 2024,
+                venue: "IEEE International Conference on Innovative Applications of Technology for Micro & Smart Industries (IATMSI)",
+                type: "ieee",
+                category: ["ai-ml", "cancer"],
+                description: "Demonstrates the application of deep learning techniques for automated cytopathology analysis and prostate cancer diagnosis. Achieves high accuracy in identifying adenocarcinoma patterns from histopathological images.",
+                doi: "https://doi.org/10.1109/IATMSI60426.2024.10502565",
+                tags: ["Deep Learning", "Cancer Diagnosis", "Cytopathology"]
+            },
+            {
+                title: "Artificial Intelligence Techniques to Reduce Thermal Pollution",
+                authors: "Goswami, S., Sharma, S., & Kohli, P.",
+                year: 2024,
+                venue: "IEEE International Conference on Innovations in Technology for Computing and Engineering Education (IITCEE)",
+                type: "ieee",
+                category: ["ai-ml"],
+                description: "Proposes AI-driven solutions for monitoring and mitigating thermal pollution in industrial and environmental contexts. Integrates machine learning models for predictive thermal management.",
+                doi: "https://doi.org/10.1109/IITCEE59897.2024.10467413",
+                tags: ["Environmental AI", "Thermal Pollution", "Sustainability"]
+            },
+            {
+                title: "Deep Learning Enabled Computational Design and Analysis of Effective Ligands Targeting Estrogen Receptor Beta (ERβ) in Breast Cancer Diagnosis",
+                authors: "Goswami, S., & Sharma, S.",
+                year: 2023,
+                venue: "IEEE International Conference on Applied Intelligence and Computing (AIC)",
+                type: "ieee",
+                category: ["ai-ml", "cancer", "drug-discovery"],
+                description: "Leverages deep learning for rational design of novel ligands targeting ERβ in breast cancer. Combines computational chemistry with neural networks to optimize binding affinity and selectivity.",
+                doi: "https://doi.org/10.1109/AIC57670.2023.10263932",
+                tags: ["Deep Learning", "Breast Cancer", "Drug Design", "Molecular Docking"]
+            },
+            {
+                title: "Industry 4.0 Enabled Molecular Imaging Using Artificial Intelligence Technique",
+                authors: "Goswami, S., & Sharma, S.",
+                year: 2022,
+                venue: "IEEE International Conference on Computer Science and Technology (ICCST)",
+                type: "ieee",
+                category: ["ai-ml", "clinical"],
+                description: "Presents Industry 4.0 frameworks for enhancing molecular imaging through AI-powered image analysis and interpretation. Demonstrates improved diagnostic accuracy and workflow efficiency.",
+                doi: "https://doi.org/10.1109/ICCST55948.2022.10040406",
+                tags: ["Industry 4.0", "Molecular Imaging", "AI"]
+            },
+            {
+                title: "Augmented Reality in Medical Education: An Industry 4.0 Enabled Innovative Approach",
+                authors: "Goswami, S., & Sharma, S.",
+                year: 2022,
+                venue: "IEEE International Conference on System, Computation, Automation and Networking (ICOSEC)",
+                type: "ieee",
+                category: ["ai-ml"],
+                description: "Explores the integration of augmented reality technologies in medical education, proposing innovative pedagogical approaches enhanced by Industry 4.0 principles for immersive learning experiences.",
+                doi: "https://doi.org/10.1109/ICOSEC54921.2022.9951941",
+                tags: ["Augmented Reality", "Medical Education", "Industry 4.0"]
+            },
+            {
+                title: "DNA Sequencing Using Artificial Intelligence",
+                authors: "Goswami, S., & Sharma, S.",
+                year: 2022,
+                venue: "IEEE International Conference on Emerging Trends in Computing and Advanced Applications (ICECAA)",
+                type: "ieee",
+                category: ["ai-ml"],
+                description: "Investigates AI methodologies for accelerating and improving DNA sequencing accuracy. Proposes novel algorithms for base calling and error correction in next-generation sequencing platforms.",
+                doi: "https://doi.org/10.1109/ICECAA55415.2022.9936101",
+                tags: ["DNA Sequencing", "AI", "Genomics"]
+            },
+            // Scopus Journal Publications (3)
+            {
+                title: "Pharmacological Significance of Catharanthus roseus in Cancer Management: A Review",
+                authors: "Goswami, S., Ali, A., Prasad, M. E., & Singh, P.",
+                year: 2024,
+                venue: "Pharmacological Research - Modern Chinese Medicine",
+                type: "scopus",
+                category: ["cancer"],
+                description: "Comprehensive review of the anticancer properties of Catharanthus roseus, examining phytochemical constituents, molecular mechanisms, and therapeutic potential. Synthesizes evidence from preclinical and clinical studies.",
+                doi: "https://doi.org/10.1016/j.prmcm.2024.100444",
+                tags: ["Phytomedicine", "Cancer", "Natural Products"]
+            },
+            {
+                title: "Application of Current Technologies in Theranostics for Early-stage Detection of Prostate Cancer",
+                authors: "Goswami, S., Chamoli, P., Upadhye, V. J., & Singh, P.",
+                year: 2022,
+                venue: "NeuroQuantology, 20(8), 6893",
+                type: "scopus",
+                category: ["cancer", "clinical"],
+                description: "Reviews state-of-the-art theranostic approaches for early prostate cancer detection, integrating diagnostic and therapeutic modalities. Discusses emerging technologies including molecular imaging and nanotechnology.",
+                doi: "https://www.neuroquantology.com/media/article_pdfs/6893-_6900.pdf",
+                tags: ["Theranostics", "Prostate Cancer", "Early Detection"]
+            },
+            {
+                title: "An Overview of COVID-19 Pandemic along with Historical Epidemic, Black Death: Their Impact on the Environment",
+                authors: "Goswami, S., & Gupta, A.",
+                year: 2020,
+                venue: "International Journal of Pharmaceutical Research, 12(4)",
+                type: "scopus",
+                category: [],
+                description: "Comparative analysis of COVID-19 and historical pandemics, examining environmental impacts and ecological consequences. Provides insights into pandemic-induced environmental changes.",
+                doi: "https://doi.org/10.31838/ijpr/2020.12.04.697",
+                tags: ["COVID-19", "Pandemic", "Environmental Impact"]
+            },
+            // Book Chapters (2)
+            {
+                title: "Novel Development of Reinforcement Learning Models in Biomedical and Health Informatics Considering Socio-Demographic Risk Assessment for Mapping MRSA",
+                authors: "Goswami, S., & Sharma, S.",
+                year: 2026,
+                venue: "IGI Global - Human-Centered AI Applications for Medical Informatics (Chapter 11, pp. 34)",
+                type: "springer",
+                category: ["ai-ml", "clinical"],
+                description: "Presents novel reinforcement learning frameworks for predicting MRSA infection patterns using socio-demographic data. Achieved superior performance over traditional DQN models with statistical significance (p ≤ 0.0007) across 50,000+ training steps.",
+                doi: "https://doi.org/10.4018/979-8-3373-1479-2.ch011",
+                tags: ["Reinforcement Learning", "MRSA", "Health Informatics"]
+            },
+            {
+                title: "Nutraceuticals in Chronic Renal Disease",
+                authors: "Goswami, S., Dimri, R., & Singh, P.",
+                year: 2024,
+                venue: "Springer - Nutraceuticals: A New Millennium Approach For Preventive Medicine (Chapter 6)",
+                type: "springer",
+                category: [],
+                description: "Examines the therapeutic potential of nutraceuticals in chronic renal disease management. Reviews evidence for dietary interventions and bioactive compounds in slowing disease progression and improving patient outcomes.",
+                doi: "https://doi.org/10.1007/978-3-031-76481-3_6",
+                tags: ["Nutraceuticals", "Renal Disease", "Preventive Medicine"]
+            },
+            // Accepted Papers (2)
+            {
+                title: "Computational Intelligence for Systems-Level Understanding of Biology",
+                authors: "Goswami, S., et al.",
+                year: 2025,
+                venue: "4th International Conference on Human-Centric Smart Computing (October 2025)",
+                type: "accepted",
+                category: ["ai-ml"],
+                description: "Data-driven analysis synthesizing computational intelligence approaches for systems biology. Integrates large-scale omics datasets to identify emergent network patterns and biological insights.",
+                doi: "#",
+                tags: ["Systems Biology", "Computational Intelligence", "Multi-omics"]
+            },
+            {
+                title: "Designing Novel GSK-3β Inhibitors for Alzheimer's Disease: Repurposing Thalidomide and Lenalidomide through Molecular Docking and Dynamics Simulations",
+                authors: "Goswami, S., et al.",
+                year: 2025,
+                venue: "CNS & Neurological Disorders - Drug Targets (Impact Factor: 3)",
+                type: "accepted",
+                category: ["alzheimer", "drug-discovery"],
+                description: "Computational repurposing of immunomodulatory drugs for Alzheimer's therapy. Demonstrates superior binding affinity to GSK-3β through extensive molecular dynamics simulations and ADMET profiling.",
+                doi: "#",
+                tags: ["Alzheimer's", "GSK-3β", "Drug Repurposing", "Molecular Dynamics"]
+            },
+            // Under Review (6)
+            {
+                title: "In-silico Design of Repurposed Anticancer Drugs Targeting RXRα for Alzheimer's Disease",
+                authors: "Goswami, S., et al.",
+                year: 2025,
+                venue: "Under Review - High Impact Journal",
+                type: "review",
+                category: ["alzheimer", "drug-discovery"],
+                description: "Novel drug repurposing approach targeting RXRα receptor in Alzheimer's pathology. Employs structure-based drug design and molecular dynamics to identify promising therapeutic candidates.",
+                doi: "#",
+                tags: ["Alzheimer's", "RXRα", "Drug Repurposing"]
+            },
+            {
+                title: "Computational Design of HDAC Inhibitors for Alzheimer's Disease Therapy",
+                authors: "Goswami, S., et al.",
+                year: 2025,
+                venue: "Under Review - High Impact Journal",
+                type: "review",
+                category: ["alzheimer", "drug-discovery"],
+                description: "Systematic design and evaluation of histone deacetylase (HDAC) inhibitors for Alzheimer's treatment. Integrates epigenetic mechanisms with computational drug design strategies.",
+                doi: "#",
+                tags: ["Alzheimer's", "HDAC", "Epigenetics", "Drug Design"]
+            },
+            {
+                title: "LSTM Recurrent Neural Networks for AI-Driven Drug Discovery and Molecular Design",
+                authors: "Goswami, S., et al.",
+                year: 2025,
+                venue: "Under Review - High Impact Journal",
+                type: "review",
+                category: ["ai-ml", "drug-discovery"],
+                description: "Deep learning architecture leveraging LSTM networks for de novo drug design. Demonstrates improved prediction of molecular properties and binding affinities for structure-based drug discovery.",
+                doi: "#",
+                tags: ["LSTM", "Deep Learning", "Drug Discovery", "Neural Networks"]
+            },
+            {
+                title: "IoT-Integrated Computational Biology Models for Precision Medicine",
+                authors: "Goswami, S., et al.",
+                year: 2025,
+                venue: "Under Review - High Impact Journal",
+                type: "review",
+                category: ["ai-ml", "clinical"],
+                description: "Framework for integrating Internet of Things (IoT) devices with computational biology models for real-time health monitoring and personalized treatment recommendations.",
+                doi: "#",
+                tags: ["IoT", "Precision Medicine", "Computational Biology"]
+            },
+            {
+                title: "Nutraceuticals in Cancer Signaling Pathways: Molecular Mechanisms and Therapeutic Implications",
+                authors: "Goswami, S., et al.",
+                year: 2025,
+                venue: "Under Review - High Impact Journal",
+                type: "review",
+                category: ["cancer"],
+                description: "Comprehensive analysis of nutraceutical compounds modulating key cancer signaling pathways. Reviews molecular mechanisms and clinical evidence for cancer prevention and adjuvant therapy.",
+                doi: "#",
+                tags: ["Nutraceuticals", "Cancer", "Signaling Pathways"]
+            },
+            {
+                title: "Neoadjuvant and Adjuvant Therapies in Hepatocellular Carcinoma: A Clinical Review",
+                authors: "Goswami, S., et al.",
+                year: 2025,
+                venue: "Under Review - High Impact Journal",
+                type: "review",
+                category: ["cancer", "clinical"],
+                description: "Systematic review of neoadjuvant and adjuvant treatment strategies for hepatocellular carcinoma. Evaluates clinical outcomes and emerging therapeutic approaches.",
+                doi: "#",
+                tags: ["Hepatocellular Carcinoma", "Adjuvant Therapy", "Clinical Outcomes"]
+            },
+            // Abstracts (3)
+            {
+                title: "Repurposing of Anti-Cancerous Drug Molecule for Effective Drug Designing against Class I and II HDAC Proteins in Alzheimer's Disease",
+                authors: "Goswami, S., et al.",
+                year: 2023,
+                venue: "6th International Conference in Biosciences and Biotechnology, Jaypee Institute of Information Technology, Noida, India",
+                type: "abstract",
+                category: ["alzheimer", "drug-discovery"],
+                description: "Conference abstract presenting computational repurposing of anticancer drugs targeting HDAC proteins for Alzheimer's therapy. Demonstrates promising binding characteristics and ADMET properties.",
+                doi: "#",
+                tags: ["Conference Abstract", "HDAC", "Alzheimer's"]
+            },
+            {
+                title: "Repurposing of Anti-Cancerous Drugs against Alzheimer's Disease for Targeting Tyrosine Kinase Receptors",
+                authors: "Goswami, S., et al.",
+                year: 2022,
+                venue: "27th Indian Society of Chemists & Biologists (ISCB) International Conference, BIT Mesra, Ranchi, India",
+                type: "abstract",
+                category: ["alzheimer", "drug-discovery"],
+                description: "Abstract on computational drug repurposing targeting tyrosine kinase receptors in Alzheimer's pathogenesis. Presents molecular docking results and therapeutic potential.",
+                doi: "#",
+                tags: ["Conference Abstract", "Tyrosine Kinase", "Alzheimer's"]
+            },
+            {
+                title: "Design and Development of Effective Drugs against Histone Deacetylases in Alzheimer's Disease using Computational Biology Tools",
+                authors: "Goswami, S., et al.",
+                year: 2022,
+                venue: "27th Indian Society of Chemists & Biologists (ISCB) International Conference, BIT Mesra, Ranchi, India",
+                type: "abstract",
+                category: ["alzheimer", "drug-discovery"],
+                description: "Conference abstract detailing computational approaches for designing HDAC inhibitors for Alzheimer's disease. Utilizes in-silico screening and molecular dynamics methodologies.",
+                doi: "#",
+                tags: ["Conference Abstract", "HDAC", "Computational Tools"]
+            }
+        ];
+
+        // Render Publications
+        function renderPublications(filter = 'all', year = 'all', category = 'all') {
+            const grid = document.getElementById('publicationsGrid');
+            grid.innerHTML = '';
+
+            let filtered = publications;
+
+            if (filter !== 'all') {
+                filtered = filtered.filter(pub => pub.type === filter);
+            }
+
+            if (year !== 'all') {
+                filtered = filtered.filter(pub => pub.year.toString() === year);
+            }
+
+            if (category !== 'all') {
+                filtered = filtered.filter(pub => pub.category.includes(category));
+            }
+
+            filtered.forEach(pub => {
+                const card = document.createElement('div');
+                card.className = 'publication-card';
+                
+                const badgeClass = `badge-${pub.type}`;
+                const badgeText = pub.type.toUpperCase().replace('SPRINGER', 'BOOK CHAPTER');
+
+                card.innerHTML = `
+                    <span class="publication-badge ${badgeClass}">${badgeText}</span>
+                    <h3 class="publication-title">${pub.title}</h3>
+                    <p class="publication-authors"><strong>Authors:</strong> ${pub.authors}</p>
+                    <p class="publication-venue"><i class="fas fa-building"></i> ${pub.venue}</p>
+                    <p class="publication-description">${pub.description}</p>
+                    <div class="publication-tags">
+                        ${pub.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="publication-links">
+                        ${pub.doi !== '#' ? `<a href="${pub.doi}" target="_blank" class="pub-link pub-link-primary">
+                            <i class="fas fa-external-link-alt"></i> View Publication
+                        </a>` : '<span class="pub-link pub-link-secondary">Publication Pending</span>'}
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1/-1; font-size: 1.2rem;">No publications found matching your filters.</p>';
+            }
+        }
+
+        // Initialize
+        renderPublications();
+
+        // Filter Handlers
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = this.dataset.filter;
+                const year = document.querySelector('[data-year].active')?.dataset.year || 'all';
+                const category = document.querySelector('[data-category].active')?.dataset.category || 'all';
+                
+                renderPublications(filter, year, category);
+            });
+        });
+
+        document.querySelectorAll('[data-year]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('[data-year]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = document.querySelector('[data-filter].active')?.dataset.filter || 'all';
+                const year = this.dataset.year;
+                const category = document.querySelector('[data-category].active')?.dataset.category || 'all';
+                
+                renderPublications(filter, year, category);
+            });
+        });
+
+        document.querySelectorAll('[data-category]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('[data-category]').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filter = document.querySelector('[data-filter].active')?.dataset.filter || 'all';
+                const year = document.querySelector('[data-year].active')?.dataset.year || 'all';
+                const category = this.dataset.category;
+                
+                renderPublications(filter, year, category);
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Counter Animation
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.target);
+            if (isNaN(target)) return;
+            
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Trigger counters on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.stat-value[data-target]').forEach(animateCounter);
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = root.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            root.setAttribute('data-theme', newTheme);
+            
+            const icon = themeToggle.querySelector('i');
+            icon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        });
+
+        // Mobile Menu
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenu.querySelector('i');
+                icon.className = 'fas fa-bars';
+            });
+        });
+
+        // Form Submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! This is a demo form. In a production environment, this would send your message to Siddharth.');
+            this.reset();
+        });
+
+        // Scroll Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
